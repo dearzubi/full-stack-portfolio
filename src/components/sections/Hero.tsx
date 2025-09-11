@@ -133,12 +133,12 @@ export function Hero() {
               </motion.div>
 
               <motion.div className="mb-8" variants={itemVariants}>
-                <div className="flex items-center space-x-6">
+                <div className="flex flex-wrap items-center gap-4">
                   <motion.a
                     href={profile.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 rounded-lg px-3 py-2 text-gray-600 transition-all duration-300 hover:scale-105 hover:text-sky-600 dark:text-gray-300 dark:hover:text-sky-400"
+                    className="flex items-center space-x-2 rounded-lg text-gray-600 transition-all duration-300 hover:scale-105 hover:text-sky-600 dark:text-gray-300 dark:hover:text-sky-400"
                     whileHover={{
                       backgroundColor: 'rgb(240, 249, 255)',
                     }}
@@ -153,7 +153,7 @@ export function Hero() {
                     href={profile.links.githubAlt}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 rounded-lg px-3 py-2 text-gray-600 transition-all duration-300 hover:scale-105 hover:text-sky-600 dark:text-gray-300 dark:hover:text-sky-400"
+                    className="flex items-center space-x-2 rounded-lg text-gray-600 transition-all duration-300 hover:scale-105 hover:text-sky-600 dark:text-gray-300 dark:hover:text-sky-400"
                     whileHover={{
                       backgroundColor: 'rgb(240, 249, 255)',
                     }}
@@ -168,7 +168,7 @@ export function Hero() {
                     href={profile.links.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 rounded-lg px-3 py-2 text-gray-600 transition-all duration-300 hover:scale-105 hover:text-sky-600 dark:text-gray-300 dark:hover:text-sky-400"
+                    className="flex items-center space-x-2 rounded-lg text-gray-600 transition-all duration-300 hover:scale-105 hover:text-sky-600 dark:text-gray-300 dark:hover:text-sky-400"
                     whileHover={{
                       backgroundColor: 'rgb(240, 249, 255)',
                     }}
