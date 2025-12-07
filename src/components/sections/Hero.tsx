@@ -138,7 +138,7 @@ export function Hero() {
                     href={profile.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 rounded-lg text-gray-600 transition-all duration-300 hover:scale-105 hover:text-sky-600 dark:text-gray-300 dark:hover:text-sky-400"
+                    className="flex items-center space-x-2 rounded-lg px-2 py-1 text-gray-600 transition-all duration-300 hover:scale-105 hover:text-sky-600 dark:text-gray-300 dark:hover:text-sky-400"
                     whileHover={{
                       backgroundColor: 'rgb(240, 249, 255)',
                     }}
@@ -153,7 +153,7 @@ export function Hero() {
                     href={profile.links.githubAlt}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 rounded-lg text-gray-600 transition-all duration-300 hover:scale-105 hover:text-sky-600 dark:text-gray-300 dark:hover:text-sky-400"
+                    className="flex items-center space-x-2 rounded-lg px-2 py-1 text-gray-600 transition-all duration-300 hover:scale-105 hover:text-sky-600 dark:text-gray-300 dark:hover:text-sky-400"
                     whileHover={{
                       backgroundColor: 'rgb(240, 249, 255)',
                     }}
@@ -168,7 +168,7 @@ export function Hero() {
                     href={profile.links.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 rounded-lg text-gray-600 transition-all duration-300 hover:scale-105 hover:text-sky-600 dark:text-gray-300 dark:hover:text-sky-400"
+                    className="flex items-center space-x-2 rounded-lg px-2 py-1 text-gray-600 transition-all duration-300 hover:scale-105 hover:text-sky-600 dark:text-gray-300 dark:hover:text-sky-400"
                     whileHover={{
                       backgroundColor: 'rgb(240, 249, 255)',
                     }}
@@ -205,6 +205,11 @@ export function Hero() {
                   Get In Touch
                 </motion.a>
               </motion.div>
+              <div>
+                <p className="mt-4 italic text-gray-500 dark:text-gray-400">
+                  Legally entitled to work in the UK, no sponsorship required.
+                </p>
+              </div>
             </div>
 
             <div className="order-1 flex justify-center lg:order-2 lg:justify-end">

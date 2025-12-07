@@ -23,10 +23,15 @@ export const skills = {
     'Tailwind CSS',
     'JavaScript',
     'REST APIs',
-    'Zod Schema Validation',
+    'Zod Data Validation',
+    'Vue.js',
+    'Nuxt',
+    'Lodash',
+    'Axios',
   ],
   'Database & Caching': [
     'PostgreSQL',
+    'MongoDB',
     'Redis',
     'MySQL',
     'SQLite',
@@ -34,6 +39,7 @@ export const skills = {
     'TypeORM',
     'MikroORM',
     'Drizzle ORM',
+    'Mongoose',
   ],
   'Cloud & DevOps': [
     'Docker',
@@ -47,10 +53,10 @@ export const skills = {
     'Hetzner',
     'Vercel',
   ],
-  'Queues & Jobs': ['BullMQ', 'Hatchet.run'],
+  'Job Scheduling': ['BullMQ', 'Hatchet.run', 'Agenda'],
   'Auth & Security': ['OAuth 2', 'JWT', 'AWS KMS', 'Firebase Auth', 'Passport.js', 'OpenSSL'],
-  'Testing & Quality': ['Vitest', 'Mocha', 'Chai', 'ESLint', 'Prettier'],
-  Observability: ['PostHog', 'Winston'],
+  'Testing & Quality': ['Vitest', 'Mocha', 'Chai', 'Jest', 'ESLint'],
+  'Monitoring & Logging': ['PostHog', 'Sentry', 'Winston'],
   AI: ['LangChain', 'LangGraph', 'OpenAI Agents SDK', 'Gemini', 'Anthropic', 'ElevenLabs'],
   Web3: ['EVM', 'MetaMask', 'Solana', 'Foundry', 'Hardhat', 'Solidity', 'DeFi', 'Smart Contracts'],
   Payments: ['Stripe', 'PayPal'],
@@ -64,9 +70,24 @@ export type ExperienceItem = {
   end: string
   bullets: string[]
   technologies?: string[]
+  note?: string
 }
 
 export const experience: ExperienceItem[] = [
+  {
+    role: 'Full-Stack Developer',
+    company: 'Hulee LTD',
+    location: 'Salford, Greater Manchester, UK',
+    start: 'Oct 2025',
+    end: 'Dec 2025',
+    bullets: [
+      'Automated payroll processing by integrating Xero Payroll with the shift management platform.',
+      'Introduced a centralised error monitoring and logging service using Winston and Sentry.',
+      'Delivered end-to-end feature development using JavaScript, Node.js, Vue.js, and MongoDB.',
+    ],
+    note: 'Role ended due to company-wide downsizing and financial restructuring.',
+    technologies: ['TypeScript', 'JavaScript', 'Node.js', 'Vue.js', 'Nuxt', 'MongoDB', 'Sentry'],
+  },
   {
     role: 'Senior Full-Stack Engineer (Contract)',
     company: 'Sage Studios AI (via Digitalux)',

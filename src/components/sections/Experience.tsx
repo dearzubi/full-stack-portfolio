@@ -92,7 +92,7 @@ export function Experience() {
                     </div>
                   </div>
 
-                  {exp.bullets && (
+                  {Array.isArray(exp.bullets) && exp.bullets.length > 0 && (
                     <div className="mb-6">
                       <h5 className="mb-3 font-semibold text-gray-900 dark:text-gray-100">
                         Key Achievements:
@@ -111,7 +111,13 @@ export function Experience() {
                     </div>
                   )}
 
-                  {exp.technologies && exp.technologies.length > 0 && (
+                  {typeof exp.note === 'string' && (
+                    <div className="mb-6">
+                      <p className="mt-4 italic text-gray-500 dark:text-gray-400">{exp.note}</p>
+                    </div>
+                  )}
+
+                  {Array.isArray(exp.technologies) && exp.technologies.length > 0 && (
                     <div>
                       <h5 className="mb-3 font-semibold text-gray-900 dark:text-gray-100">
                         Key Technologies:

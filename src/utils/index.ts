@@ -18,7 +18,6 @@ export const getSkillIcon = (skillName: string) => {
     'React Native': 'logos:react',
     Redux: 'logos:redux',
     GraphQL: 'logos:graphql',
-    Jest: 'logos:jest',
     Firebase: 'logos:firebase',
     Firestore: 'logos:firebase',
     Prisma: 'logos:prisma',
@@ -99,6 +98,13 @@ export const getSkillIcon = (skillName: string) => {
     Hardhat: 'devicon:hardhat',
     Solidity: 'devicon:solidity',
     PayPal: 'logos:paypal',
+    'Vue.js': 'logos:vue',
+    Nuxt: 'logos:nuxt-icon',
+    Sentry: 'logos:sentry-icon',
+    Mongoose: 'devicon:mongoose',
+    Jest: 'logos:jest',
+    Lodash: 'logos:lodash',
+    Axios: 'logos:axios',
   }
   return iconMap[skillName] || 'lucide:code'
 }

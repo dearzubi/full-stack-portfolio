@@ -105,6 +105,11 @@ export function Contact() {
                 </div>
               </div>
             </div>
+            <div className="flex w-full justify-center">
+              <p className="mt-4 italic text-gray-500 dark:text-gray-400">
+                Legally entitled to work in the UK, no sponsorship required.
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>
