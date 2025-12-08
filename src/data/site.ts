@@ -149,9 +149,10 @@ export type Project = {
   stack: string[]
   link?: string
   video?: string
-  githubLink?: string
+  githubLink?: string | Array<{ url: string; label: string }>
   category?: string
   image?: string
+  isFeatured?: boolean
 }
 
 export const projects: Project[] = [
@@ -171,6 +172,25 @@ export const projects: Project[] = [
     link: 'https://www.floagenticai.com/',
     githubLink: 'https://github.com/dearzubi/floagenticai',
     category: 'Web App',
+    isFeatured: true,
+  },
+  {
+    name: 'Shift Manager',
+    description: 'An employee rostering and shift management platform MVP.',
+    stack: ['JavaScript', 'React', 'Node.js', 'MongoDB'],
+    category: 'Web App',
+    githubLink: [
+      {
+        url: 'https://github.com/dearzubi/orta-full-stack-dev-test-fe',
+        label: 'Frontend',
+      },
+      {
+        url: 'https://github.com/dearzubi/orta-full-stack-dev-test-be',
+        label: 'Backend',
+      },
+    ],
+    image: '/projects/shift-manager/image_1.png',
+    isFeatured: true,
   },
   {
     name: 'Masjid 24/7',
@@ -180,6 +200,7 @@ export const projects: Project[] = [
     image: '/projects/masjid247/image_1.png',
     link: 'https://masjid247.com/',
     category: 'Web App',
+    isFeatured: true,
   },
   {
     name: 'Poprofit',

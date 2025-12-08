@@ -26,8 +26,8 @@ const itemVariants = {
   },
 } as const
 
-const featuredProjects = projects.slice(0, 2)
-const otherProjects = projects.slice(2)
+const featuredProjects = projects.filter(project => project.isFeatured)
+const otherProjects = projects.filter(project => !project.isFeatured)
 
 export function Projects() {
   return (
@@ -131,7 +131,7 @@ export function Projects() {
                       </a>
                     )}
 
-                    {project.githubLink && (
+                    {typeof project.githubLink === 'string' && (
                       <a
                         href={project.githubLink}
                         target="_blank"
@@ -143,6 +143,21 @@ export function Projects() {
                         <ExternalLink className="ml-2 h-3 w-3" />
                       </a>
                     )}
+                    {Array.isArray(project.githubLink) &&
+                      project.githubLink.length > 0 &&
+                      project.githubLink.map((repo, index) => (
+                        <a
+                          key={index}
+                          href={repo.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center rounded-xl border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 transition-all duration-300 hover:border-gray-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-500"
+                        >
+                          <Icon icon={'logos:github-icon'} className="mr-2 h-4 w-4" />
+                          {repo.label}
+                          <ExternalLink className="ml-2 h-3 w-3" />
+                        </a>
+                      ))}
                   </div>
                 </div>
               </motion.div>
@@ -227,20 +242,33 @@ export function Projects() {
                           </a>
                         )}
 
-                        {project.githubLink && (
+                        {typeof project.githubLink === 'string' && (
                           <a
                             href={project.githubLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`${
-                              project.link ? 'flex-1' : 'w-full'
-                            } inline-flex items-center justify-center rounded-xl border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition-all duration-300 hover:border-gray-400`}
+                            className="inline-flex items-center rounded-xl border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 transition-all duration-300 hover:border-gray-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-500"
                           >
-                            <Icon icon={'logos:github-icon'} className="mr-1 h-3 w-3" />
+                            <Icon icon={'logos:github-icon'} className="mr-2 h-4 w-4" />
                             View Code
-                            <ExternalLink className="ml-1 h-3 w-3" />
+                            <ExternalLink className="ml-2 h-3 w-3" />
                           </a>
                         )}
+                        {Array.isArray(project.githubLink) &&
+                          project.githubLink.length > 0 &&
+                          project.githubLink.map((repo, index) => (
+                            <a
+                              key={index}
+                              href={repo.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center rounded-xl border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 transition-all duration-300 hover:border-gray-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-500"
+                            >
+                              <Icon icon={'logos:github-icon'} className="mr-2 h-4 w-4" />
+                              {repo.label}
+                              <ExternalLink className="ml-2 h-3 w-3" />
+                            </a>
+                          ))}
                       </div>
                     </div>
                   </motion.div>
