@@ -8,7 +8,7 @@ export const profile = {
   links: {
     github: 'https://github.com/dearzubi',
     githubAlt: 'https://github.com/coolpengwing',
-    linkedin: 'https://linkedin.com/in/zubair-khalid',
+    linkedin: 'https://linkedin.com/in/mr-zubair-khalid',
   },
   blurb: 'Building, scaling, and shipping software for 4+ years, from concept to impact.',
 }
