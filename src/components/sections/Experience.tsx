@@ -41,7 +41,7 @@ export function Experience() {
               className="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-100 md:text-5xl"
               variants={itemVariants}
             >
-              Experience
+              Work Experience
             </motion.h2>
             <motion.p
               className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400"
