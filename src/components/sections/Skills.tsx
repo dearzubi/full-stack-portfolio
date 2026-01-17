@@ -27,7 +27,7 @@ const itemVariants = {
 } as const
 
 export function Skills() {
-  const [activeCategory, setActiveCategory] = useState('Core')
+  const [activeCategory, setActiveCategory] = useState(Object.keys(skills)[0])
 
   return (
     <section id="skills" className="bg-gray-50 py-24 dark:bg-gray-900">

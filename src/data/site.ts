@@ -1,6 +1,6 @@
 export const profile = {
   name: 'Zubair Khalid',
-  title: 'Full-Stack Software Engineer',
+  title: 'Full-Stack Software Developer',
   location: 'Manchester, UK',
   email: 'zubairkhalidce@gmail.com',
   phone: '+44 07859 010112',
@@ -10,24 +10,43 @@ export const profile = {
     githubAlt: 'https://github.com/coolpengwing',
     linkedin: 'https://linkedin.com/in/mr-zubair-khalid',
   },
-  blurb: 'Building, scaling, and shipping software for 4+ years, from concept to impact.',
+  blurb: 'Crafting resilient systems that handle real-world chaos gracefully.',
+  coreTechnologies: [
+    'TypeScript',
+    'JavaScript (ES6+)',
+    'React',
+    'Node.js',
+    'Express',
+    'PostgreSQL',
+    'Docker',
+  ],
 }
 
 export const skills = {
-  Core: [
+  'Languages & Frameworks': [
     'TypeScript',
+    'JavaScript (ES6+)',
+    'Python',
     'Node.js',
     'React',
     'Next.js',
     'Express',
-    'Tailwind CSS',
-    'JavaScript',
-    'REST APIs',
-    'Zod Data Validation',
     'Vue.js',
     'Nuxt',
+    'NestJS',
+  ],
+  APIs: ['REST APIs', 'WebSocket', 'Server-Sent Events (SSE)'],
+  'Libraries & Tools': [
+    'Tailwind CSS',
     'Lodash',
     'Axios',
+    'Zod',
+    'Yup',
+    'React Flow',
+    'Socket.io',
+    'TanStack React Query',
+    'TanStack Router',
+    'SheetJS',
   ],
   'Database & Caching': [
     'PostgreSQL',
@@ -62,13 +81,19 @@ export const skills = {
   Payments: ['Stripe', 'PayPal'],
 }
 
+export type ExperienceLine = {
+  value: string
+  type: 'text' | 'heading' | 'bullet'
+  subLines?: ExperienceLine[]
+}
+
 export type ExperienceItem = {
   role: string
   company?: string
   location?: string
   start: string
   end: string
-  bullets: string[]
+  lines: ExperienceLine[]
   technologies?: string[]
   note?: string
 }
@@ -80,13 +105,50 @@ export const experience: ExperienceItem[] = [
     location: 'Salford, Greater Manchester, UK',
     start: 'Oct 2025',
     end: 'Dec 2025',
-    bullets: [
-      'Implemented and documented centralised logging, monitoring, and error tracking Node.js service in JavaScript using Sentry, improving visibility into production issues and post-deployment debugging.',
-      'Optimised Express REST API endpoints, identifying V8 performance issues and improving response times by up to 3x under production load.',
-      'Integrated Xero Payroll REST APIs into a multi-tenant Vue.js and Node.js platform, enabling automated employee synchronisation and timesheet management.',
+    lines: [
+      {
+        value:
+          'Delivered a queue-driven payroll synchronisation service for a multi-tenant SaaS platform (orta.co.uk) serving 15 organisations and 700+ staff members using Vue.js, Node.js, and MongoDB.',
+        type: 'bullet',
+        subLines: [
+          {
+            value:
+              'Built idempotent, resumable background jobs to sync staff data with Xero Payroll API.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Implemented per-employee failure isolation, enabling safe recovery from partial sync failures.',
+            type: 'bullet',
+          },
+          {
+            value: 'Performed unit and integration testing using Jest and Supertest.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Collaborated with the team to define technical requirements and delivery milestones in agile sprints.',
+            type: 'bullet',
+          },
+        ],
+      },
+      {
+        value:
+          'Implemented a centralised logging service using Winston with Sentry integration, enabling detailed error tracking with accurate stack traces and rich metadata for faster root cause analysis.',
+        type: 'bullet',
+      },
     ],
     note: 'Role ended due to company-wide downsizing and financial restructuring.',
-    technologies: ['TypeScript', 'JavaScript', 'Node.js', 'Vue.js', 'Nuxt', 'MongoDB', 'Sentry'],
+    technologies: [
+      'TypeScript',
+      'JavaScript',
+      'Node.js',
+      'Vue.js',
+      'Nuxt',
+      'MongoDB',
+      'Sentry',
+      'Winston',
+    ],
   },
   {
     role: 'Full-Stack Engineer',
@@ -94,23 +156,133 @@ export const experience: ExperienceItem[] = [
     location: 'Remote',
     start: 'Aug 2024',
     end: 'Jul 2025',
-    bullets: [
-      'Integrated DeFi trading and analytics APIs with AI agents using Node.js, enabling agentic trading workflows and contributing to an average 4x increase in gross weekly revenue (~$3,800 to ~$16,000) over a three-month period.',
-      'Designed and deployed cloud infrastructure on DigitalOcean, containerised Node.js services using Docker, and implemented CI/CD pipelines with GitHub Actions.',
-      'Improved LLM tool execution pipelines using prompt optimisation and typed schemas written in TypeScript, doubling tool selection accuracy and third-party API call success rates.',
-      'Delivered backend and frontend features across 100+ GitHub issues using TypeScript, React, and Node.js, including API development, bug fixes, and performance improvements, in collaboration with the product team.',
-      'Built an event-driven, no-code AI automation platform using TypeScript, React, Express, and Node.js, onboarding 150+ users within a month.',
-      'Identified and fixed development build bottlenecks using TypeScript JIT compilation and hot reloading, reducing average build time from 5 minutes to a few seconds.',
-      'Web3: Custodial Wallets (AWS Lambda + KMS), ERC-4337 gasless txs, BullMQ queues, DeFi integrations & Telegram bot.',
+    lines: [
+      {
+        value:
+          'Architected and built an event-driven, no-code AI agent platform enabling non-technical users to create autonomous, multi-step workflows. Served 1,500+ users building automated trading, analytics, and data processing agents.',
+        type: 'text',
+      },
+      {
+        value: 'Core Platform Development:',
+        type: 'heading',
+        subLines: [
+          {
+            value:
+              'Implemented drag-and-drop workflow builder using React Flow, including version history with time-travel support.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Built a DAG execution engine with BullMQ job queues, ensuring idempotency, automatic retries, and graceful failure recovery across distributed workers.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Delivered real-time UX using WebSockets for client-server interaction and SSE for live execution status updates.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Implemented secure credential management using asymmetric encryption with AWS KMS and Lambda (Python), protecting sensitive API keys and authentication tokens.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Integrated 10+ DeFi and analytics platforms, enabling agent-driven crypto analysis and trading workflows.',
+            type: 'bullet',
+          },
+          {
+            value: 'Performed unit and integration testing using Mocha, Chai, and Supertest.',
+            type: 'bullet',
+          },
+        ],
+      },
+      {
+        value: 'Cloud Infrastructure:',
+        type: 'heading',
+        subLines: [
+          {
+            value:
+              'Provisioned production infrastructure on DigitalOcean and containerised a React/Node.js monorepo using Docker.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Replaced manual deployments with automated CI/CD pipelines using GitHub Actions, reducing deployment time.',
+            type: 'bullet',
+          },
+        ],
+      },
+      {
+        value: 'Performance & Reliability:',
+        type: 'heading',
+        subLines: [
+          {
+            value:
+              'Optimised LLM tool-calling accuracy through prompt engineering and Zod schema validation in TypeScript.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Reduced development build times from 5+ minutes to a few seconds by implementing JIT TypeScript compilation, module caching, and hot module reloading.',
+            type: 'bullet',
+          },
+          {
+            value: 'Diagnosed and resolved critical production issues:',
+            type: 'bullet',
+            subLines: [
+              {
+                value:
+                  'Fixed JSON serialisation bug in workflow execution that caused performance degradation and crashes.',
+                type: 'bullet',
+              },
+              {
+                value:
+                  'Resolved undefined behaviour from third-party dependency monkey-patching the Node.js fetch API.',
+                type: 'bullet',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        value: 'Team Collaboration:',
+        type: 'heading',
+        subLines: [
+          {
+            value:
+              'Conducted code reviews focusing on security, performance, and maintainability best practices.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Mentored junior developer on code architecture, async JavaScript, and agentic execution in LangGraph.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Wrote technical documentation for API endpoints, system architecture, and deployment procedures.',
+            type: 'bullet',
+          },
+        ],
+      },
     ],
     technologies: [
       'TypeScript',
+      'Python',
       'React',
+      'React Flow',
       'Node.js',
       'PostgreSQL',
       'Redis',
       'LangGraph',
       'OpenAI Agents SDK',
+      'BullMQ',
+      'Docker',
+      'DigitalOcean',
+      'AWS KMS',
+      'GitHub Actions',
+      'WebSocket',
     ],
   },
   {
@@ -118,13 +290,67 @@ export const experience: ExperienceItem[] = [
     location: 'Remote',
     start: 'Apr 2023',
     end: 'Aug 2024',
-    bullets: [
-      'Developed a Node.js and Next.js e-commerce order fulfilment system, contributing to over £10,000 in client revenue.',
-      'Built a React Progressive Web App (PWA), integrated with .NET backend APIs, serving 500+ monthly active users.',
-      'Implemented a serverless backend using TypeScript, Node.js, and Firebase, handling 10,000+ monthly requests.',
-      'Implemented a retail profit calculator web app from Excel sheets handling $30k+/mo sales.',
+    lines: [
+      {
+        value: 'E-commerce Shipping Platform (UK-based e-commerce client)',
+        type: 'heading',
+        subLines: [
+          {
+            value:
+              'Built a custom shipping management system using Next.js, reducing manual label creation from ~4 minutes to seconds through automation.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Integrated eBay REST APIs with OAuth 2.0 authentication, enabling automated order fulfilment.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Implemented user authentication with multi-factor authentication (MFA) using Firebase Auth.',
+            type: 'bullet',
+          },
+        ],
+      },
+      {
+        value: 'Mosque Discovery & Prayer Timings Web App (masjid247.com)',
+        type: 'heading',
+        subLines: [
+          {
+            value:
+              'Developed NestJS backend and React Progressive Web App (PWA), serving 1,000+ daily active users.',
+            type: 'bullet',
+          },
+        ],
+      },
+      {
+        value: 'Fitness Flutter App Serverless Backend (mura.fit)',
+        type: 'heading',
+        subLines: [
+          {
+            value:
+              'Developed a TypeScript/Node.js serverless backend on GCP Cloud Run, handling 10,000+ monthly invocations.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Implemented scheduled cron jobs using GCP Cloud Scheduler for automated goal reminders and notifications.',
+            type: 'bullet',
+          },
+          { value: 'Managed data persistence in Firebase Firestore (NoSQL DB).', type: 'bullet' },
+        ],
+      },
     ],
-    technologies: ['TypeScript', 'Node.js', 'Next.js', 'React', 'PostgreSQL', 'Firebase', 'Vercel'],
+    technologies: [
+      'TypeScript',
+      'Node.js',
+      'NestJS',
+      'Next.js',
+      'React',
+      'PostgreSQL',
+      'Firebase',
+      'Vercel',
+    ],
   },
   {
     role: 'Software Developer',
@@ -132,11 +358,34 @@ export const experience: ExperienceItem[] = [
     location: 'Lahore, Pakistan',
     start: 'Sept 2021',
     end: 'Jan 2023',
-    bullets: [
-      'Led a 3-person team to develop a decentralised SSL certificate issuance platform using React, Express, Node.js, and Ethereum blockchain, resulting in a funding grant from NCCS Pakistan and Polygon DAO.',
-      'Co-organised a technical workshop and trained over 70 industry professionals through hands-on Solidity programming sessions.',
-      'Contributed to the analysis of 23,000+ Ethereum smart contracts for a research paper on smart contract storage state, published in ACM Transactions on Software Engineering and Methodology.',
-      'Co-delivered a featured talk on “Reimagining PKI with Blockchain” at the IEEE 2nd International Conference on Cyberwarfare & Cybersecurity 2021 in Islamabad.',
+    lines: [
+      {
+        value:
+          'Led a 3-person development team building a decentralised SSL certificate issuance platform to innovate public key infrastructure (PKI) using blockchain technology built using React, Express, and Node.js.',
+        type: 'text',
+        subLines: [
+          {
+            value:
+              'Built a full-stack application with a distributed node network deployed on AWS EC2.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Developed and deployed Solidity smart contracts on Ethereum testnets and Polygon PoS blockchain.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Secured an extended funding grant from NCCS Pakistan and $20,000 in AWS credits from Polygon.',
+            type: 'bullet',
+          },
+          {
+            value:
+              'Trained 70+ industry professionals in Solidity programming through hands-on technical workshops.',
+            type: 'bullet',
+          },
+        ],
+      },
     ],
     technologies: ['Solidity', 'Node.js', 'TypeScript', 'React', 'AWS', 'EVM', 'OpenSSL'],
   },
@@ -223,12 +472,6 @@ export const projects: Project[] = [
     stack: ['TypeScript', 'Firebase'],
     image: '/projects/mura/image_1.png',
     link: 'https://www.mura.fit/',
-  },
-  {
-    name: 'PKIChain',
-    description: 'A revolutionising solution for Blockchain-based DV SSL Certificates',
-    stack: ['TypeScript', 'React', 'Node.js', 'OpenSSL', 'EVM', 'Solidity'],
-    link: 'https://pkichain.com/',
   },
 ]
 

@@ -3,6 +3,7 @@ export const getSkillIcon = (skillName: string) => {
     React: 'logos:react',
     TypeScript: 'logos:typescript-icon',
     JavaScript: 'logos:javascript',
+    'JavaScript (ES6+)': 'logos:javascript',
     'Node.js': 'logos:nodejs-icon',
     'Next.js': 'logos:nextjs-icon',
     Python: 'logos:python',
@@ -75,7 +76,7 @@ export const getSkillIcon = (skillName: string) => {
     Anthropic: 'simple-icons:anthropic',
     ElevenLabs: 'simple-icons:elevenlabs',
     NestJS: 'vscode-icons:file-type-nestjs',
-    'Zod Schema Validation': 'simple-icons:zod',
+    Zod: 'simple-icons:zod',
     TypeORM: 'simple-icons:typeorm',
     MikroORM: 'streamline-block:devices-database',
     'Drizzle ORM': 'simple-icons:drizzle',
@@ -105,6 +106,10 @@ export const getSkillIcon = (skillName: string) => {
     Jest: 'logos:jest',
     Lodash: 'logos:lodash',
     Axios: 'logos:axios',
+    'React Flow': 'simple-icons:xyflow',
+    'TanStack React Query': 'logos:react-query-icon',
+    'TanStack Router': 'simple-icons:tanstack',
+    WebSocket: 'logos:websocket',
   }
   return iconMap[skillName] || 'lucide:code'
 }

@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
-import { experience, ExperienceItem } from '@/data/site.ts'
+import { experience, ExperienceItem, ExperienceLine } from '@/data/site.ts'
 import { CalendarDays, MapPin } from 'lucide-react'
 import { Icon } from '@iconify/react'
 import { getSkillIcon } from '@/utils'
+import { FC } from 'react'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -25,6 +26,30 @@ const itemVariants = {
     },
   },
 } as const
+
+const ExperienceLineItem: FC<{ line: ExperienceLine }> = ({ line }) => (
+  <li className="text-gray-700 dark:text-gray-300">
+    <div className="flex flex-col gap-1">
+      <div className="flex items-start gap-2">
+        {line.type === 'bullet' && (
+          <div className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-500"></div>
+        )}
+        {line.type === 'heading' ? (
+          <strong className="text-gray-900 dark:text-gray-100">{line.value}</strong>
+        ) : (
+          <span>{line.value}</span>
+        )}
+      </div>
+      {line.subLines && line.subLines.length > 0 && (
+        <ul className="ml-6 mt-1 space-y-1">
+          {line.subLines.map((subLine, index) => (
+            <ExperienceLineItem line={subLine} key={index} />
+          ))}
+        </ul>
+      )}
+    </div>
+  </li>
+)
 
 export function Experience() {
   return (
@@ -92,20 +117,14 @@ export function Experience() {
                     </div>
                   </div>
 
-                  {Array.isArray(exp.bullets) && exp.bullets.length > 0 && (
+                  {Array.isArray(exp.lines) && exp.lines.length > 0 && (
                     <div className="mb-6">
-                      <h5 className="mb-3 font-semibold text-gray-900 dark:text-gray-100">
+                      <strong className="font-semibold text-gray-900 dark:text-gray-100">
                         Key Achievements:
-                      </h5>
-                      <ul className="space-y-2">
-                        {exp.bullets.map((bullet, bulletIndex) => (
-                          <li
-                            key={bulletIndex}
-                            className="flex items-start gap-2 text-gray-700 dark:text-gray-300"
-                          >
-                            <div className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-500"></div>
-                            <span>{bullet}</span>
-                          </li>
+                      </strong>
+                      <ul className="mt-2 space-y-2">
+                        {exp.lines.map((line, index) => (
+                          <ExperienceLineItem line={line} key={index} />
                         ))}
                       </ul>
                     </div>

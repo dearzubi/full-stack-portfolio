@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import { Download } from 'lucide-react'
 import { Icon } from '@iconify/react'
-import { profile, skills } from '@/data/site.ts'
+import { profile } from '@/data/site.ts'
 import { getSkillIcon } from '@/utils'
 
-const topSkills = skills.Core.slice(0, 6)
+const topSkills = profile.coreTechnologies
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -207,7 +207,8 @@ export function Hero() {
               </motion.div>
               <div>
                 <p className="mt-4 italic text-gray-500 dark:text-gray-400">
-                  Legally entitled to work in the UK, no sponsorship required.
+                  Legally authorised to work in the UK, no sponsorship required. Available for
+                  remote, hybrid, or Manchester-based roles.
                 </p>
               </div>
             </div>
